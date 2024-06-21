@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --maxWorkers=50%",
+    "test": "jest --maxWorkers=50% --watch",
     "lint": "eslint . --ext .ts --max-warnings=0",
     "prepare": "husky"
   },
