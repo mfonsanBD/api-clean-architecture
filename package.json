@@ -8,6 +8,8 @@
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm run test --watch -c jest-unit-config.js",
     "test:integration": "npm run test --watch -c jest-integration-config.js",
+    "test:staged": "npm run test --findRelatedTests --bail",
+    "test:ci": "yarn jest --passWithNoTests --silent --noStackTrace --runInBand --coverage",
     "lint": "eslint . --ext .ts --max-warnings=0 --fix",
     "prepare": "husky"
   },
