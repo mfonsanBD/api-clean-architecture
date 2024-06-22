@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --maxWorkers=50% --watch",
-    "lint": "eslint . --ext .ts --max-warnings=0",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "npm run test --watch -c jest-unit-config.js",
+    "test:integration": "npm run test --watch -c jest-integration-config.js",
+    "lint": "eslint . --ext .ts --max-warnings=0 --fix",
     "prepare": "husky"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn jest --passWithNoTests --silent --noStackTrace --runInBand --coverage"
     }
   },
   "lint-staged": {
